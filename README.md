@@ -62,45 +62,12 @@ A modern, professional trading platform built with Next.js featuring advanced ca
 - **Custom Canvas Implementation**: High-performance charting without external dependencies
 - **HTML5 Canvas API**: Direct rendering for optimal performance
 - **Real-time Coordinate System**: Precise mouse interaction and coordinate conversion
-- **Advanced Math Calculations**: Distance algorithms for line interaction detection
+- **Recharts**: Recharts is a composable charting library built with React and D3, designed for creating responsive and customizable data visualizations.
 
 ### Data Management
 - **React Hooks**: useState, useEffect, useCallback for state management
 - **LocalStorage Integration**: Persistent data storage with error handling
 - **Type-safe Data Models**: Comprehensive TypeScript interfaces
-
-### Development Tools
-- **ESLint**: Code quality and consistency enforcement
-- **PostCSS**: CSS processing and optimization
-- **Autoprefixer**: Automatic vendor prefix handling
-
-## 📁 Project Structure
-
-\`\`\`
-my-v0-project/
-├── app/
-│   ├── layout.tsx          # Root layout with theme provider
-│   ├── page.tsx            # Main dashboard page
-│   └── globals.css         # Global styles and Tailwind imports
-├── components/
-│   ├── ui/                 # Reusable UI components (Radix-based)
-│   ├── TradingDashboard.tsx # Main dashboard layout
-│   ├── TradingChart.tsx    # Advanced canvas-based chart
-│   ├── TrendlineControls.tsx # Chart control panel
-│   ├── CoordinateDisplay.tsx # Trendline coordinate viewer
-│   ├── TrendlineManager.tsx  # Trendline list management
-│   ├── PortfolioOverview.tsx # Portfolio statistics cards
-│   ├── TradingPanel.tsx    # Buy/sell interface
-│   └── Header.tsx          # Navigation header
-├── types/
-│   └── chart.tsx           # TypeScript type definitions
-├── utils/
-│   ├── mockData.tsx        # Chart data generation
-│   └── formatters.tsx      # Data formatting utilities
-└── hooks/
-    ├── use-mobile.tsx      # Mobile detection hook
-    └── use-toast.ts        # Toast notification system
-\`\`\`
 
 ## 🚀 Getting Started
 
@@ -179,63 +146,6 @@ npm run lint     # Run ESLint for code quality
 - **Flexible Layouts**: CSS Grid and Flexbox for adaptive layouts
 - **Touch Support**: Canvas events work on both desktop and mobile
 
-## 🔧 Technical Implementation
-
-### Trendline Drawing Algorithm
-\`\`\`typescript
-// Coordinate conversion between screen and chart space
-const screenToChart = (x: number, y: number): ChartPoint => {
-  const timeScale = getTimeScale()
-  const priceScale = getPriceScale()
-  
-  const chartX = x - margin.left
-  const chartY = y - margin.top
-  
-  const time = timeScale.min + (chartX / chartWidth) * (timeScale.max - timeScale.min)
-  const price = priceScale.invert(chartY)
-  
-  return { time, price }
-}
-\`\`\`
-
-### Drag Detection System
-\`\`\`typescript
-// Distance calculation for line interaction
-const distanceToLine = (px: number, py: number, x1: number, y1: number, x2: number, y2: number): number => {
-  // Point-to-line distance algorithm for precise interaction detection
-  const A = px - x1, B = py - y1, C = x2 - x1, D = y2 - y1
-  const dot = A * C + B * D
-  const lenSq = C * C + D * D
-  
-  if (lenSq === 0) return Math.sqrt(A * A + B * B)
-  
-  let param = Math.max(0, Math.min(1, dot / lenSq))
-  const xx = x1 + param * C, yy = y1 + param * D
-  
-  return Math.sqrt((px - xx) ** 2 + (py - yy) ** 2)
-}
-\`\`\`
-
-## 📊 Data Models
-
-### Trendline Interface
-\`\`\`typescript
-interface TrendlineData {
-  id: string                    // Unique identifier
-  startPoint: ChartPoint        // Start coordinates
-  endPoint: ChartPoint          // End coordinates
-  color: string                 // Visual color
-  width: number                 // Line thickness
-  style?: number                // Line style (solid, dashed, etc.)
-  createdAt: string            // Creation timestamp
-}
-
-interface ChartPoint {
-  time: number                  // Unix timestamp
-  price: number                 // Price value
-}
-\`\`\`
-
 ## 🎨 Styling & Theming
 
 ### Design System
@@ -257,46 +167,6 @@ interface ChartPoint {
 - **Data Validation**: Ensures data integrity on load
 - **Migration Support**: Handles data structure changes
 
-## 🚀 Performance Optimizations
-
-### Rendering Optimizations
-- **Canvas Scaling**: High-DPI display support
-- **Efficient Redraws**: Only rerender when necessary
-- **Memory Management**: Proper cleanup of event listeners
-
-### React Optimizations
-- **useCallback**: Memoized event handlers
-- **useMemo**: Expensive calculations cached
-- **Component Splitting**: Lazy loading for better performance
-
-## 🧪 Testing Approach
-
-### Manual Testing Checklist
-- ✅ Trendline drawing (two-click creation)
-- ✅ Drag and drop functionality
-- ✅ Coordinate logging on double-click
-- ✅ Delete functionality with hover
-- ✅ LocalStorage persistence
-- ✅ Multiple trendline support
-- ✅ Responsive design
-- ✅ Cross-browser compatibility
-
-## 🔮 Future Enhancements
-
-### Planned Features
-- **Technical Indicators**: Moving averages, RSI, MACD
-- **Advanced Drawing Tools**: Fibonacci retracements, rectangles, channels
-- **Real-time Data**: WebSocket integration for live market data
-- **Export Functionality**: Save charts as images or data files
-- **User Authentication**: Personal trendline libraries
-- **Collaboration**: Share trendlines with other users
-
-### Technical Improvements
-- **WebGL Rendering**: For even better performance with large datasets
-- **PWA Support**: Offline functionality and app-like experience
-- **API Integration**: Real market data providers
-- **Advanced Analytics**: Pattern recognition and automated analysis
-
 ## 📝 Development Notes
 
 ### Assumptions Made
@@ -311,43 +181,8 @@ interface ChartPoint {
 3. **TypeScript**: Ensures type safety and better developer experience
 4. **Modular Architecture**: Easy to extend and maintain
 
-## 🤝 Contributing
-
-### Development Setup
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
 ### Code Standards
 - **TypeScript**: All new code must be typed
 - **ESLint**: Follow the established linting rules
 - **Component Structure**: Follow the existing patterns
 - **Documentation**: Update README for new features
-
-## 📄 License
-
-This project is proprietary and confidential. All rights reserved.
-
-## 📞 Support
-
-For technical questions or support, please contact the development team.
-
----
-
-**Built with ❤️ using Next.js, TypeScript, and Canvas API**
-\`\`\`
-
-This comprehensive README covers all aspects of your TradePro trading platform, including:
-
-1. **Complete feature overview** with screenshots reference
-2. **Detailed tech stack** with all dependencies explained
-3. **Step-by-step setup instructions**
-4. **Architecture decisions and technical implementation**
-5. **Code examples** showing key algorithms
-6. **Performance considerations**
-7. **Future roadmap**
-8. **Professional presentation** suitable for company review
-
-The README demonstrates the sophistication of your implementation, particularly the custom Canvas-based charting system and advanced trendline functionality, which shows strong technical skills and attention to detail.
