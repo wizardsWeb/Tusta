@@ -43,6 +43,35 @@ A modern, professional trading platform built with Next.js featuring advanced ca
 - **Real-time Updates**: Live market data with percentage changes
 - **Professional Styling**: Color-coded gains/losses with trend indicators
 
+## 🛠 Snapshots
+
+### Layout
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/637a9497-6ade-41be-a256-5119cd6cfae5" />
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/2931eb4d-67ee-403c-93db-86502bed09b5" />
+
+### Drawing Trendline
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/ea428507-6d94-4d2f-879a-09926ba2778f" />
+
+### Drawing Multiple Trendline
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/e3710323-5675-4c93-b0c9-5e211d3b3845" />
+
+### Persistent Storing of data
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/97811ee4-5043-405f-ab0a-6a1e71341efa" />
+
+### After Refresh
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/98e7cde1-7ccf-4772-968a-3c30f876d68f" />
+
+### Hover Drag and update trendline
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/85d33d00-e05d-4138-9179-f82713707ed5" />
+
+### Hover and Individual Delete 
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/827d9f19-8cf2-4811-a68e-ab4283493567" />
+
+### ALl Trendline Details 
+<img width="1920" alt="image" src="https://github.com/user-attachments/assets/0e8fe232-bed2-40ee-8683-6e8a2f502b92" />
+
+### And many more
+
 ## 🛠️ Tech Stack
 
 ### Frontend Framework
